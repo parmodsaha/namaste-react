@@ -1,11 +1,10 @@
 import React from "react";
-import ReactDOM from "react-dom/client";
-
-const jsxheading = (<h1 id="heading">Namaste react from jsx</h1>);
-
-const HeadingComponent = () => {
-    return <h1>this is functional component</h1>;
-};
+import ReactDOM from "react-dom";
+const heading = React.createElement(
+    "h1", 
+    {id: "heading"}, 
+    "Hellow world from react"
+);
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
 root.render(jsxheading);
