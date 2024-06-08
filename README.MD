@@ -12,7 +12,7 @@ npm install
 
 ## NPM
 for install : npm install
-for start: npm install
+for start: npm start
 
 ## Parcel install
 command: npm install -D parcel
