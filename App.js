@@ -34,15 +34,25 @@ const RestaurantCard = (props) => {
     const { restData } = props;
     // const restaurantInfo = restData.card.gridElements.infoWithStyle.restaurants[0].info;
 
+    // destructuring
+    const {
+        cloudinaryImageId,
+        name,
+        costForTwo,
+        cuisines,
+        avgRatingString,
+        sla: { slaString },
+    } = restData?.info;
+
     return (
         <div className="rest-card" style={{ backgroundColor: "#f0f0f0" }}>
             <img className="restro-image" alt="img" src=
-            {"https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/" + restData.info.cloudinaryImageId} />
-            <h3>{restData.info.name}</h3>
-            <h3>{restData.info.costForTwo}</h3>
-            <h4>{restData.info.cuisines.join(', ')}</h4>
-            <h4>{restData.info.avgRatingString} star</h4>
-            <h4>{restData.info.sla.slaString}</h4>
+            {"https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/" + cloudinaryImageId} />
+            <h3>{name}</h3>
+            <h3>{costForTwo}</h3>
+            <h4>{cuisines.join(', ')}</h4>
+            <h4>{avgRatingString} star</h4>
+            <h4>{slaString}</h4>
         </div>
     );
 }
@@ -1950,9 +1960,9 @@ const restList =  [
             <div className="body">
                 <div className="search">Search</div>
                 <div className="res-container">
-                    <RestaurantCard restData={restList[0]} />
-                    <RestaurantCard restData={restList[1]} />
-                    <RestaurantCard restData={restList[2]} />
+                    { restList.map ((restaurant) => (
+                        <RestaurantCard key={restData.info.id} restData={restaurant} />
+                    ))};
                 </div>
             </div>
         );
