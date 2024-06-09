@@ -1960,8 +1960,8 @@ const restList =  [
             <div className="body">
                 <div className="search">Search</div>
                 <div className="res-container">
-                    { restList.map ((restaurant) => (
-                        <RestaurantCard key={restData.info.id} restData={restaurant} />
+                    {restList.map((restaurant) => (
+                        <RestaurantCard key={restaurant.info.id} restData={restaurant} />
                     ))};
                 </div>
             </div>
