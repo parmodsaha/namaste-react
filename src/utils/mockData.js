@@ -1,61 +1,3 @@
-import React from "react";
-import ReactDOM from "react-dom/client";
-
-// const styleCard = {
-//     backgroundColor : "f0f0f0",
-// }
-
-const Header = () => {
-    return (
-        <div className="header">
-            <div className="logo-container">
-                <img src="https://www.logodesign.net/logo/smoking-burger-with-lettuce-3624ld.png" />
-            </div>
-            <div className="nav-items">
-                <ul>
-                    <li>
-                        <a>Home</a>
-                    </li>
-                    <li>
-                        <a>About Us</a>
-                    </li>
-                    <li>
-                        <a>Contact Us</a>
-                    </li>
-                    <li>
-                        <a>Cart</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    )
-}
-const RestaurantCard = (props) => {
-    const { restData } = props;
-    // const restaurantInfo = restData.card.gridElements.infoWithStyle.restaurants[0].info;
-
-    // destructuring
-    const {
-        cloudinaryImageId,
-        name,
-        costForTwo,
-        cuisines,
-        avgRatingString,
-        sla: { slaString },
-    } = restData?.info;
-
-    return (
-        <div className="rest-card" style={{ backgroundColor: "#f0f0f0" }}>
-            <img className="restro-image" alt="img" src=
-            {"https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/" + cloudinaryImageId} />
-            <h3>{name}</h3>
-            <h3>{costForTwo}</h3>
-            <h4>{cuisines.join(', ')}</h4>
-            <h4>{avgRatingString} star</h4>
-            <h4>{slaString}</h4>
-        </div>
-    );
-}
 const restList =  [
     {
       "info": {
@@ -77,7 +19,7 @@ const restList =  [
           "Street Food",
           "Sweets"
         ],
-        "avgRating": 4.5,
+        "avgRating": 3.5,
         "parentId": "281782",
         "avgRatingString": "4.5",
         "totalRatingsString": "10K+",
@@ -1954,28 +1896,6 @@ const restList =  [
         "type": "WEBLINK"
       }
     }
-  ];
-    const Body = () => {
-        return (
-            <div className="body">
-                <div className="search">Search</div>
-                <div className="res-container">
-                    {restList.map((restaurant) => (
-                        <RestaurantCard key={restaurant.info.id} restData={restaurant} />
-                    ))};
-                </div>
-            </div>
-        );
-    }
-const AppLayout = () => {
-    return (
-        <div className="app">
-            <Header/>
-            <Body/>
-        </div>
-    )
-}
+];
 
-const root = ReactDOM.createRoot(document.getElementById("root"));
-
-root.render(<AppLayout/>);
+export default restList;
