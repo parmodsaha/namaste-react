@@ -1,11 +1,27 @@
 import RestaurantCard from "./RestaurantCard";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import restList from "../utils/mockData";
 
 
 const Body = () => {
     //local state variable - super powerful variable
-    const [listOfRestaurants, setListOfRestaurants] = useState(restList);
+    const [listOfRestaurants, setListOfRestaurants] = useState(
+        restList[0].data.cards[0].card.card.gridElements.infoWithStyle.restaurants
+    );
+    // useEffect (() => {
+    //     console.log("use effect called");
+    //     fetchData();
+    // }, []);
+
+    // const fetchData = async () => {
+    //     const data = await fetch(
+    //         "https://www.swiggy.com/dapi/restaurants/list/v5?lat=28.45970&lng=77.02820"
+    //     );
+    //     const json = await data.json();
+
+    //     console.log(json);
+    //     setListOfRestaurants(json.data.cards[0].card.card.gridElements.infoWithStyle.restaurants);
+    // };
 
     return (
         <div className="body">
@@ -23,8 +39,8 @@ const Body = () => {
                     Top 10 Restaurants
                 </button>
             <div className="res-container">
-                {listOfRestaurants.map((restaurant) => (
-                    <RestaurantCard key={restaurant.info.id} restData={restaurant} />
+                {listOfRestaurants.map((restaurants) => (
+                    <RestaurantCard key={restaurants.info.id} restData={restaurants} />
                 ))};
             </div>
         </div>
