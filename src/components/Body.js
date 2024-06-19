@@ -1,6 +1,7 @@
 import RestaurantCard from "./RestaurantCard";
 import { useState, useEffect } from "react";
 import restList from "../utils/mockData";
+import Shimmer from "./Shimmer";
 
 
 const Body = () => {
@@ -18,10 +19,17 @@ const Body = () => {
         const json = await data.json();
 
         console.log(json);
-        setListOfRestaurants(json.data.cards[1].card.card.gridElements.infoWithStyle.restaurants);
+        // optional chaining
+        setListOfRestaurants(json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
     };
+    // conditional rendering
+    // if(listOfRestaurants.length === 0) {
+    //     return <Shimmer />
+    // }
 
-    return (
+    return listOfRestaurants.length === 0 ? (
+      <Shimmer />
+    ) : (
         <div className="body">
             <div className="search">Search</div>
                 <button
