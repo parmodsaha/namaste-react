@@ -16,8 +16,12 @@
 .nav-items > ul > li {
     padding: 0px 15px;
 }
-.search {
-    padding: 15px;
+.filter-btn {
+    margin-left: 15px;
+}
+.filter {
+   display: flex;
+   margin: 15px ;
 }
 .res-container {
     display: flex;
