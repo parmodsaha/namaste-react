@@ -17,7 +17,7 @@ const Body = () => {
 
     const fetchData = async () => {
         const data = await fetch(
-            "https://www.swiggy.com/dapi/restaurants/list/v5?lat=28.45970&lng=77.02820"
+            "https://thingproxy.freeboard.io/fetch/https://www.swiggy.com/dapi/restaurants/list/v5?lat=28.45970&lng=77.02820"
         );
         const json = await data.json();
 
