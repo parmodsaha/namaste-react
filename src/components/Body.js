@@ -38,23 +38,20 @@ const Body = () => {
             <div className="filter">
                 <div className="search">
                     <input 
-                    type="text" 
-                    placeholder="Search any" 
-                    className="input-box" 
-                    value={searchText} 
-                    onChange={(e) => { 
-                        setSearchText(e.target.value); 
-                    }} 
+                        type="text" 
+                        placeholder="Search any" 
+                        className="input-box" 
+                        value={searchText} 
+                        onChange={(e) => setSearchText(e.target.value)} 
                     />
-                    <button onClick={ () => {
+                     <button onClick={() => {
                         console.log(searchText);
                         const filteredRestaurant = listOfRestaurants.filter(
                             (res) => res.info.name.toLowerCase().includes(searchText.toLowerCase())
                         );
                         setFilteredRestaurant(filteredRestaurant);
-                    }}
-                        >
-                            Search
+                    }}>
+                        Search
                     </button>
                 </div>
                 <button
@@ -64,7 +61,7 @@ const Body = () => {
                             .filter((res) => res.info.avgRating > 4)
                             .sort((a, b) => b.info.avgRating - a.info.avgRating)
                             .slice(0, 10);
-                        setListOfRestaurants(filteredList);
+                        setFilteredRestaurant(filteredList);
                     }}
                 >
                     Top 10 Restaurants
