@@ -5,11 +5,12 @@ class UserClass extends React.Component {
         super(props);
     }
     render () {
+        const {name, city, contact} = this.props;
         return (
             <div className="user-card">
-                <h2>Name: {this.props.name}</h2>
-                <h3>Location: {this.props.city}</h3>
-                <h4>Contact: {this.props.contact}</h4>
+                <h2>Name: {name}</h2>
+                <h3>Location: {city}</h3>
+                <h4>Contact: {contact}</h4>
             </div>
         );  
     };
